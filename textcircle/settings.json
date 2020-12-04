@@ -1,0 +1,8 @@
+{
+"sharejs": {
+"options": {
+"db": {
+"type": "mongo",
+"opsCollectionPerDoc": true
+}}}
+}
