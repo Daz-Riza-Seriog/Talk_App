@@ -2,11 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
 import { ShareJS } from 'meteor/edemaine:sharejs';
 
-this.Documents = new Mongo.Collection('documnts');
+//this.Documents = new Mongo.Collection('documnts');
+Messages = new Mongo.Collection("messages");
 
 Meteor.startup(() => {
-  if (!Documents.findOne()) { //falsey statement--if isn't there
-    Documents.insert({title:'my new documnt'})
-  }
+  //if (!Documents.findOne()) { //falsey statement--if isn't there
+    //Documents.insert({title:'my new documnt'})
+  //}
   // code to run on server at startup
 });

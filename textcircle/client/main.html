@@ -3,11 +3,15 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  {{>header}}
+  {{>nicknameForm}}
+  {{>messageList}}
+  {{>messageForm}}
+  <!--<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">TextCircle</a>
-    </div><!--nav container end-->
-  </nav>
+    </div>--><!--nav container end-->
+  <!--</nav>
   <div class="container top-margin">
     {{> date_display}}
     <div class="row">
@@ -18,10 +22,10 @@
         {{> preview}}
       </div>
     </div>
-  </div>
+  </div>-->
 </body>
 
-<template name="editor">
+<!--<template name="editor">
   {{> sharejsCM docid=docid onRender=config id='editor'}}
 </template>
 
@@ -32,4 +36,37 @@
 <template name="date_display">
   {{current_date}}
   {{myvar}}
+</template>-->
+
+<!-- We over-write this code beacuse afailures in instal Mongo-->
+<template name="header">
+    <h1>Welcome to M-Instant {{nickname}}</h1>
+</template>
+
+<template name="messageList">
+    {{#each messages}}
+        {{>messageItem}}
+    {{/each}}
+</template>
+
+<template name="messageItem">
+    <h3>{{nickname}} - {{messageText}}</h3>
+</template>
+
+<template name="nicknameForm">
+    <div class="form-group">
+        <label for="nickname-input">Nickname:</label>
+        <input type="text" class="form-control" id="nickname-input" placeholder="Type message here...">
+        <button type="submit" class="btn btn-default js-set-nickname">Set my nickname!</button>
+
+    </div>
+</template>
+
+<template name="messageForm">
+    <div class="form-group">
+        <label for="message-text-input">Message:</label>
+        <input type="text" class="form-control" id="message-text-input" placeholder="Type message here...">
+        <button type="submit" class="btn btn-primary js-save-message">Post!</button>
+
+    </div>
 </template>
