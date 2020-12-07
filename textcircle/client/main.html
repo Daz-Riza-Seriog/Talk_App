@@ -3,16 +3,33 @@
 </head>
 
 <body>
-  <h1>Welcome to TextCircle!</h1>
-
-  {{> editor}}
-  {{> info}}
-
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">TextCircle</a>
+    </div><!--nav container end-->
+  </nav>
+  <div class="container top-margin">
+    {{> date_display}}
+    <div class="row">
+      <div class="col-xs-6 col-md-6 col-lg-6">
+        {{> editor}}
+      </div>
+      <div class="col-xs-6 scol-md-6 col-lg-6">
+        {{> preview}}
+      </div>
+    </div>
+  </div>
 </body>
 
 <template name="editor">
-  {{> sharejsCM docid=docid id='editor'}}
+  {{> sharejsCM docid=docid onRender=config id='editor'}}
 </template>
 
-<template name="info">
+<template name="preview">
+  <iframe id="viewer_iframe" src="" width="" height=""></iframe>
+</template>
+
+<template name="date_display">
+  {{current_date}}
+  {{myvar}}
 </template>
